@@ -1,0 +1,11 @@
+# file_organizer/config.yaml
+source: "/home/noh/Downloads/"
+destination: "/home/noh/Downloads/organized/"
+categories:
+  images: [".jpg", ".jpeg", ".png", ".gif", ".webp"]
+  documents: [".pdf", ".docx", ".doc", ".txt", ".md", ".pptx"]
+  videos: [".mp4", ".mkv", ".mov"]
+  archives: [".zip", ".tar.gz", ".rar", ".7z"]
+  code: [".py", ".js", ".java", ".cpp", ".c", ".rb"]
+default: "others"
+handle_duplicates: "rename"  # options: "rename", "skip", "overwrite"
