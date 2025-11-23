@@ -6,24 +6,27 @@ from datetime import date, timedelta
 DATA = Path(__file__).parent / "data" / "habits.json"
 
 def show_last_days(habit, days=14):
-    if not DATA.exists():
-        print("No data.")
-        return
-    data = json.loads(DATA.read_text())
-    if habit not in data:
-        print("Habit not found.")
-        return
-    records = set(data[habit])
+    records = set(habit[1])  # habit is a tuple (name, list)
     today = date.today()
     out = []
     for i in range(days-1, -1, -1):
         d = (today - timedelta(days=i)).isoformat()
         out.append("✔" if d in records else "·")
-    print(habit, "|", " ".join(out))
+    print(habit[0], "|", " ".join(out))
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-        print("Usage: python dashboard.py HabitName")
+    if not DATA.exists():
+        print("No data.")
+        exit()
+    data = json.loads(DATA.read_text())
+    from sys import argv
+
+    if len(argv) == 1:  # no habit specified
+        for habit in data.items():
+            show_last_days(habit)
     else:
-        show_last_days(sys.argv[1])
+        habit_name = argv[1]
+        if habit_name in data:
+            show_last_days((habit_name, data[habit_name]))
+        else:
+            print("Habit not found.")
