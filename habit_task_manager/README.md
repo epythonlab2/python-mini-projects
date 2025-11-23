@@ -34,24 +34,29 @@ Includes a small `dashboard.py` script that prints a calendar-style view of the 
 ```bash
 python habits.py add "Exercise"
 python habits.py add "Read"
+```
 
 ### Mark a habit as done for today
 ```bash
 python habits.py done "Exercise"
 python habits.py done "Read"
+```
 
 ### Check current streak of a habit
 ```bash
 python habits.py streak "Exercise"
 python habits.py streak "Read"
+```
 
 ### List all habits
 ```bash
 python habits.py list
+```
 
 ### Dashboard (Visual View)
 ```bash
 python dashboard.py
+```
 
 Displays a calendar-like view of your habits for the last 14 days, showing which days were completed.
 
@@ -64,3 +69,4 @@ python habits.py done "Read"
 python habits.py streak "Exercise"
 python habits.py list
 python dashboard.py
+```
