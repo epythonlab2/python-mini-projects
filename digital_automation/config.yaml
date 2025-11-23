@@ -1,0 +1,5 @@
+source: "/home/noh/Downloads/organized/images"
+destination: "/home/noh/Downloads/renamed_images"
+prefix: "renamed_"
+start: 1
+dry: false # set to true

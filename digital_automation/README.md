@@ -12,31 +12,38 @@ A collection of small Python automation scripts to simplify repetitive tasks. In
 - Safe “dry-run” mode for testing file operations.  
 
 ---
-
 ## Usage
 
+### 1. Bulk Rename (YAML Config)
 
-**1. Bulk Rename**
+**Config file example: `config.yaml`**
 
-Rename all files in a folder sequentially with a prefix.
-
-```bash
-python bulk_rename.py /path/to/folder --prefix img_ --start 1
+```yaml
+source: "/home/noh/Downloads/organized/images"
+destination: "/home/noh/Downloads/renamed_images"
+prefix: "renamed_"
+start: 1
+dry: false   # set to true for dry-run
 ```
-**Arguments:**
+**Run the script:**
+```bash
+python bulk_rename.py --config config.yaml
+```
+**Behavior:**
 
-- folder: Path to the folder containing files.
+- Renames all files in the source folder.
 
-- --prefix: Optional prefix for renamed files (default: file_).
+- Moves files to the destination folder if specified.
 
-- --start: Starting number for sequence (default: 1).
+- Prefix and numbering start can be configured.
 
-- --dry: Show what would be renamed without actually renaming.
+- Dry-run mode (dry: true) shows what would happen without actually renaming or moving.
 
 **Example:**
 ```bash
-python bulk_rename.py ./photos --prefix vacation_ --start 1 --dry
+python bulk_rename.py --config config.yaml
 ```
+
 **2. Folder Backup**
 
 Create a ZIP archive backup of a folder with a timestamped name.
